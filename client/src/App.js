@@ -6,7 +6,7 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 
 import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser } from './actions/authActions';
+import { setCurrentUser, logoutUser } from './actions/authActions';
 
 import './App.css';
 import './css/styles.css';
@@ -25,6 +25,16 @@ if(localStorage.jwtToken) {
   const decodedToken = jwt_decode(localStorage.jwtToken);
   // Set current user and isAuthenticated
   store.dispatch(setCurrentUser(decodedToken));
+
+  // Check for expired token
+  const currentTime = Date.now() / 1000;
+  if(decodedToken.exp < currentTime) {
+    store.dispatch(logoutUser());
+    // TODO clear current profile
+
+    // Redirect to login
+    window.location.href = '/login';
+  }
 }
 
 
