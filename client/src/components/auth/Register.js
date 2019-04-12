@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 import heroImg from '../../img/register/hero.png';
+import TextFieldGroup from '../common/TextFieldGroup';
 
 
 import classnames from 'classnames';
@@ -81,41 +82,43 @@ class Register extends Component {
                     <span className="clearfix"></span>
                     <form onSubmit={this.onSubmit}>
 
-                      <div className="form-group">
-                        <input type="text" className={classnames('form-control form-control-lg', {
-                          'is-invalid': errors.name
-                        })} placeholder="Name" name="name" value={this.state.name} onChange={this.onChange}/>
-                        {errors.name && (<div className="invalid-feedback">
-                          {errors.name}
-                        </div>)}
-                      </div>
+                    <TextFieldGroup 
+                    placeholder="Full Name"
+                    name="name"
+                    type="text"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    error={errors.name}
+                    />
 
-                      <div className="form-group">
-                        <input type="email" className={classnames('form-control form-control-lg', {
-                          'is-invalid': errors.email
-                        })} placeholder="Email Address" value={this.state.email} name="email" onChange={this.onChange} />
-                        {errors.email && (<div className="invalid-feedback">
-                          {errors.email}
-                        </div>)}
-                      </div>
+                    <TextFieldGroup 
+                    placeholder="Email Address"
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}
+                    />
 
-                      <div className="form-group">
-                        <input type="password" className={classnames('form-control form-control-lg', {
-                          'is-invalid': errors.password
-                        })} placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} />
-                        {errors.password && (<div className="invalid-feedback">
-                          {errors.password}
-                        </div>)}
-                      </div>
+                    <TextFieldGroup 
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                    />
 
-                      <div className="form-group">
-                        <input type="password" className={classnames('form-control form-control-lg', {
-                          'is-invalid': errors.password2
-                        })} placeholder="Confirm Password" name="password2" value={this.state.password2} onChange={this.onChange} />
-                        {errors.password2 && (<div className="invalid-feedback">
-                          {errors.password2}
-                        </div>)}
-                      </div>
+                    <TextFieldGroup 
+                    placeholder="Re-enter your password"
+                    name="password2"
+                    type="password2"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                    error={errors.password2}
+                    />
+
+                    
                       <input type="submit" className="btn btn-info btn-block mt-4" />
 
                     </form>
