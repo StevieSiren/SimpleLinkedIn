@@ -60,7 +60,7 @@ class Register extends Component {
 
     return (
       <div className="main-content">
-        <section className="min-vh-100 d-flex align-items-center bg-gradient-info">
+        <section className="min-vh-100 d-flex align-items-center bg-primary">
         {/* <div className="bg-img-holder top-0 right-0 col-lg-6 col-xl-8 zindex-100 d-none d-lg-block"
         data-bg-size="cover"
         data-bg-position="center"
@@ -71,7 +71,7 @@ class Register extends Component {
             <div className="row align-items-center">
               <div className="col-sm-7 col-md-6 mx-auto ml-lg-0">
                 <div className="px-lg-2">
-                  <div className="card card-body">
+                  <div className="card card-body shadow">
                     <div className="mb-5 text-center">
                       <h6 className="h3">Create your account</h6>
                       <p className="text-muted mb-0">Start building your professional network in just a few steps.</p>
@@ -116,12 +116,12 @@ class Register extends Component {
                     />
 
                     
-                      <input type="submit" className="btn btn-info btn-block mt-4" />
+                      <input type="submit" className="btn btn-soft-primary btn-block mt-4" />
 
                     </form>
                     <div className="mt-4 text-center">
                       <small>Already have an account?</small>
-                      <Link to="/login" className="text-info ml-2">Sign in.</Link>
+                      <Link to="/login" className="text-primary ml-2">Sign in.</Link>
                     </div>
                   </div>
                 </div>
