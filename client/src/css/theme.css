@@ -2433,6 +2433,7 @@ textarea.form-control {
   line-height: 1.5;
   border-radius: 0.3125rem;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2444,7 +2445,6 @@ textarea.form-control {
 .btn:hover {
   color: #1e2022;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .btn:focus, .btn.focus {

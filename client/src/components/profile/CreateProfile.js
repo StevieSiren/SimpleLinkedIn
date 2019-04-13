@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaGroup from '../common/TextAreaGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
+
+import { createProfile } from '../../actions/profileActions';
 
 
 
@@ -32,9 +35,31 @@ class CreateProfile extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
-        console.log('Submitted form.');
+        const profileData = {
+            handle: this.state.handle,
+            company: this.state.company,
+            website: this.state.website,
+            location: this.state.location,
+            status: this.state.status,
+            skills: this.state.skills,
+            bio: this.state.bio,
+            twitter: this.state.twitter,
+            facebook: this.state.facebook,
+            linkedin: this.state.linkedin,
+            youtube: this.state.youtube
+        };
+
+        this.props.createProfile(profileData, this.props.history);
     }
 
     onChange(e) {
@@ -96,17 +121,15 @@ class CreateProfile extends Component {
     ];
 
     return (
-        <div class="create-profile">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 m-auto">
-              <a href="#" class="btn btn-light">
-                Go Back
-              </a>
-              <h1 class="display-4 text-center">Create Your Profile</h1>
-              <p class="lead text-center">Let's get some information to make your profile stand out</p>
-              <small class="d-block pb-3">* = required field</small>
-              <form action={this.onSubmit}>
+        <div className="create-profile">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              
+              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <p className="lead text-center">Let's get some information to make your profile stand out</p>
+              <small className="d-block pb-3">* = required field</small>
+              <form onSubmit={this.onSubmit}>
                 <TextFieldGroup 
                 placeholder="Profile Handle"
                 name="handle"
@@ -204,4 +227,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {})(CreateProfile);
+export default connect(mapStateToProps, { createProfile })(withRouter(CreateProfile));
