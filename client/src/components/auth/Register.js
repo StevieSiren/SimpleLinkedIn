@@ -7,9 +7,6 @@ import { withRouter, Link } from 'react-router-dom';
 import heroImg from '../../img/register/hero.png';
 import TextFieldGroup from '../common/TextFieldGroup';
 
-
-import classnames from 'classnames';
-
 class Register extends Component {
     constructor() {
         super();

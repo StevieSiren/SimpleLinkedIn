@@ -2444,6 +2444,7 @@ textarea.form-control {
 .btn:hover {
   color: #1e2022;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn:focus, .btn.focus {

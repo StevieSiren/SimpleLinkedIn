@@ -17,7 +17,7 @@ const TextAreaGroup = ({
         className={classnames('form-control form-control-lg', {
         'is-invalid': error
         })} 
-        placeholder="Email Address" 
+        placeholder={placeholder} 
         name={name} 
         value={value} 
         onChange={onChange} 
