@@ -3,13 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getCurrentProfile } from '../../actions/profileActions';
+import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import Spinner from '../common/Spinner';
+import ProfileActions from './ProfileActions';
 
 class Profile extends Component {
     
     componentDidMount() {
         this.props.getCurrentProfile();
+    }
+
+    onDeleteClick(e) {
+      e.preventDefault();
+      this.props.deleteAccount();
     }
 
   render() {
@@ -22,7 +28,17 @@ class Profile extends Component {
       profileContent = <Spinner />
     } else {
       if(Object.keys(profile).length > 0) {
-        profileContent = <h4>Display profile</h4>
+        profileContent = (
+          <div className="mt-7">
+            <h4><Link to={`/profile/${profile.handle}`}>{user.name}</Link></h4>
+            <ProfileActions />
+            <div className="mt-4">
+              <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
+                Delete Account
+              </button>
+            </div>
+          </div>
+        );
       } else {
         // Show CTA to create a profile
         profileContent = (
@@ -42,7 +58,6 @@ class Profile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="display-4">Profile</div>
               {profileContent}
             </div>
           </div>
@@ -55,6 +70,7 @@ class Profile extends Component {
 
 Profile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 }
@@ -66,4 +82,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, { getCurrentProfile })(Profile);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Profile);

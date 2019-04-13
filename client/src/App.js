@@ -9,7 +9,7 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 
 import './App.css';
-// import './css/styles.css';
+import './css/styles.css';
 import './css/theme.css';
 
 import Navbar from './components/layout/Navbar';
