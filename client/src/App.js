@@ -15,12 +15,16 @@ import './css/theme.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
+
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+
 import Profile from './components/profile/Profile';
 import { clearCurrentProfile } from './actions/profileActions';
 import PrivateRoute from './components/common/PrivateRoute';
 import CreateProfile from './components/profile/CreateProfile';
+import EditProfile from './components/profile/EditProfile';
+import AddExperience from './components/profile/AddExperience';
 
 
 // Check for auth token
@@ -58,6 +62,12 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/add-experience" component={AddExperience} />
               </Switch>
             <Footer />
           </div>
