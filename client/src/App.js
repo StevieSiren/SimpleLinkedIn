@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -9,7 +9,8 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 
 import './App.css';
-import './css/styles.css';
+// import './css/styles.css';
+import './css/theme.css';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -18,6 +19,8 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Profile from './components/profile/Profile';
 import { clearCurrentProfile } from './actions/profileActions';
+import PrivateRoute from './components/common/PrivateRoute';
+import CreateProfile from './components/profile/CreateProfile';
 
 
 // Check for auth token
@@ -50,7 +53,12 @@ class App extends Component {
               <Route exact path="/" component={ Landing } />
               <Route exact path="/register" component={ Register } />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/profile" component={Profile} />
+              <Switch>
+                <PrivateRoute exact path="/profile" component={Profile} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+              </Switch>
             <Footer />
           </div>
         </Router>
