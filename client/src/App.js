@@ -26,6 +26,8 @@ import CreateProfile from './components/profile/CreateProfile';
 import EditProfile from './components/profile/EditProfile';
 import AddExperience from './components/profile/AddExperience';
 import AddEducation from './components/profile/AddEducation';
+import Profiles from './components/profiles/Profiles';
+import PublicProfile from './components/profile/profile-sections/PublicProfile';
 
 
 // Check for auth token
@@ -58,6 +60,8 @@ class App extends Component {
               <Route exact path="/" component={ Landing } />
               <Route exact path="/register" component={ Register } />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:handle" component={PublicProfile} />
               <Switch>
                 <PrivateRoute exact path="/profile" component={Profile} />
               </Switch>
