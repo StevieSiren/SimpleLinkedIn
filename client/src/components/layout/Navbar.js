@@ -31,6 +31,11 @@ class Navbar extends Component {
           All Profiles
         </Link>
       </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/feed">
+          Feed
+        </Link>
+      </li>
         <li className="nav-item">
           <Link onClick={this.onLogoutClick.bind(this)} className="nav-link">
           

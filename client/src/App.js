@@ -29,6 +29,9 @@ import AddEducation from './components/profile/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import PublicProfile from './components/profile/profile-sections/PublicProfile';
 
+import Posts from './components/posts/Posts';
+
+
 
 // Check for auth token
 if(localStorage.jwtToken) {
@@ -76,6 +79,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/add-education" component={AddEducation} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
             <Footer />
           </div>
