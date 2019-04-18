@@ -30,6 +30,7 @@ import Profiles from './components/profiles/Profiles';
 import PublicProfile from './components/profile/profile-sections/PublicProfile';
 
 import Posts from './components/posts/Posts';
+import Post from './components/posts/post/Post';
 
 
 
@@ -82,6 +83,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
             <Footer />
           </div>
