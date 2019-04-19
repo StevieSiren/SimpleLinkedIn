@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import classnames from 'classnames';
+import flatpickr from 'flatpickr';
 
-const TextFieldGroup = ({
+const Datepicker = ({
     name,
     placeholder,
     value,
@@ -13,10 +14,10 @@ const TextFieldGroup = ({
     type,
     onChange,
     disabled
-}) => {
+}
+) => {
   return (
     <div className="form-group">
-    
         <input type={type} 
         className={classnames('form-control', {
         'is-invalid': error
@@ -35,7 +36,7 @@ const TextFieldGroup = ({
 }
 
 
-TextFieldGroup.propTypes = {
+Datepicker.propTypes = {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.string.isRequired,
@@ -48,9 +49,9 @@ TextFieldGroup.propTypes = {
 };
 
 
-TextFieldGroup.defaultProps = {
+Datepicker.defaultProps = {
     type: 'text'
 };
 
 
-export default TextFieldGroup;
+export default Datepicker;

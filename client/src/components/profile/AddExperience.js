@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaGroup from '../common/TextAreaGroup';
+import Datepicker from '../common/inputs/Datepicker';
 
 import { addExperience } from '../../actions/profileActions';
 
@@ -70,22 +71,28 @@ class AddExperience extends Component {
     const { errors } = this.state;
 
     return (
-      <div>
+      <div className="min-vh-100 d-flex align-items-center">
         <div className="container">
-            <div className="row">
-                <div className="col-md-8 mx-auto">
-                    <Link to="/profile" className="btn btn-light">Back to Profile</Link>
-                    <h1 className="display-4 text-center">Add Experience</h1>
-                    <p className="lead text-muted text-center">Add your professional experience here.</p>
-                    <form onSubmit={this.onSubmit}>
+            <div className="mb-3">
+                <h2 className="h5 mb-0 text-primary">Add <strong>Experience</strong></h2>
+                <p>Share a bit more about your work experience.</p>
+            </div>
+            
+                <form onSubmit={this.onSubmit}>
+                <div className="row">
+                    <div className="col-sm-6 mb-6">
                         <TextFieldGroup 
                         placeholder="Company"
                         name="company"
+                        type="text"
                         value={this.state.company}
                         onChange={this.onChange}
                         error={errors.company}
                         />
 
+                        
+                    </div>
+                    <div className="col-sm-6 mb-6">
                         <TextFieldGroup 
                         placeholder="Job Title"
                         name="title"
@@ -93,7 +100,10 @@ class AddExperience extends Component {
                         onChange={this.onChange}
                         error={errors.title}
                         />
-
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12 mb-6">
                         <TextFieldGroup 
                         placeholder="Location"
                         name="location"
@@ -101,7 +111,11 @@ class AddExperience extends Component {
                         onChange={this.onChange}
                         error={errors.location}
                         />
-                        <h6>From date</h6>
+                    </div>
+                    
+                </div>
+                <div className="row">
+                <div className="col-sm-6 mb-6">
                         <TextFieldGroup 
                         placeholder="Start Date"
                         name="from"
@@ -110,7 +124,9 @@ class AddExperience extends Component {
                         onChange={this.onChange}
                         error={errors.from}
                         />
-                        <h6>{this.state.disabled ? 'You currently work here' : 'To date'}</h6>
+                    </div>
+                    <div className="col-sm-6 mb-">
+                    
                         <TextFieldGroup 
                         name="to"
                         type="date"
@@ -118,8 +134,8 @@ class AddExperience extends Component {
                         onChange={this.onChange}
                         error={errors.to}
                         disabled={this.state.disabled ? 'disabled' : ''}
+                        info={this.state.disabled ? 'You currently work here' : null}
                         />
-
                         <div className="form-check mb-4">
                             <input type="checkbox"
                             className="form-check-input"
@@ -131,19 +147,27 @@ class AddExperience extends Component {
                             />
                             <label htmlFor="current" className="form-check-label">I currently work here</label>
                         </div>
-                        <TextFieldGroup 
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12 mb-6">
+                    <TextFieldGroup 
                         name="description"
                         value={this.state.description}
                         onChange={this.onChange}
                         error={errors.description}
                         info="Write a short description about your duties."
                         />
-                        <input type="submit" value="Submit" className="btn btn-soft-primary"/>
-                    </form>
+                    </div>
+                </div>
+                <input type="submit" value="Save Experience" className="btn btn-primary transition-3d-hover"/>
+                <Link to="/profile" className="btn btn-soft-secondary transition-3d-hover ml-3">Back to Profile</Link>
+                </form>
+                
                 </div>
             </div>
-        </div>
-      </div>
+        
+      
     )
   }
 }

@@ -16,35 +16,41 @@ class Experience extends Component {
 
 
     const exp = this.props.exp.map(item => (
-        <tr key={item._id}>
-            <td>{item.company}</td>
-            <td>{item.title}</td>
-            <td>
-                <Moment format="MM/DD/YYYY">{item.from}</Moment>
-                {' '} - {' '}
-                {item.to === null ? ('Current') : (<Moment format="MM/DD/YYYY">{item.to}</Moment>)}
-            </td>
-            <td><button className="btn btn-danger" onClick={this.onDeleteClick.bind(this, item._id)}>Remove</button></td>
-        </tr>
+        // <tr key={item._id}>
+        //     <td>{item.company}</td>
+        //     <td>{item.title}</td>
+        //     <td>
+        //         <Moment format="MM/DD/YYYY">{item.from}</Moment>
+        //         {' '} - {' '}
+        //         {item.to === null ? ('Current') : (<Moment format="MM/DD/YYYY">{item.to}</Moment>)}
+        //     </td>
+        //     <td><button className="btn btn-danger" onClick={this.onDeleteClick.bind(this, item._id)}>Remove</button></td>
+        // </tr>
+        <div className="col-lg-12 mb-3" key={item._id}>
+            <div className="card">
+                <div className="card-body p-5">
+                <div className="float-right">
+                <button type="button" onClick={this.onDeleteClick.bind(this, item._id)} class="btn btn-icon btn-danger btn-xs transition-3d-hover">
+                    <span class="fas fa-times btn-icon__inner"></span>
+                </button>
+                </div>
+                    <h2 className="h4">{item.title}</h2>
+                    <p className="text-secondary"><em>{item.company}</em></p>
+                    <small className="text-muted d-inline">
+                        <Moment format="MM/DD/YYYY">{item.from}</Moment>
+                        {' '} - {' '}
+                        {item.to === null ? ('Current') : (<Moment format="MM/DD/YYYY">{item.to}</Moment>)}
+                    </small>
+                    <p>{item.description}</p>
+                </div>
+            </div> 
+        </div>
     ))
 
     return (
-      <div>
-        <h4 className="mb-2">Experience</h4>
-        <table className="table">
-            <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-                
-                    {exp}
-                
-            </thead>
-        </table>
-      </div>
+      <React.Fragment>
+          {exp}
+      </React.Fragment>
     )
   }
 }
