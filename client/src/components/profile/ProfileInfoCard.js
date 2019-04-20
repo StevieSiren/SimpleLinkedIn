@@ -11,7 +11,7 @@ const ProfileInfoCard = ({
 }) => {
 
     return (
-      <div className="card mb-3 mb-lg-0">
+      <div className="card mb-3 mb-lg-0 transition-3d-hover">
         <div className="card-body p-5">
             <div className="media align-items-center">
                 <Link to={link} className={btnClass}>

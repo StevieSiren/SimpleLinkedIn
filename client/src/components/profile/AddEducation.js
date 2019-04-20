@@ -70,13 +70,14 @@ class AddEducation extends Component {
     const { errors } = this.state;
 
     return (
-      <div>
-        <div className="container">
+      <div className="min-vh-100">
+        <div className="container" style={{marginTop: '100px'}}>
             <div className="row">
                 <div className="col-md-8 mx-auto">
-                    <Link to="/profile" className="btn btn-light">Back to Profile</Link>
-                    <h1 className="display-4 text-center">Add Education</h1>
-                    <p className="lead text-muted text-center">Add your education history.</p>
+                <div className="mb-3">
+                    <h2 className="h5 mb-0 text-primary">Add <strong>Education</strong></h2>
+                    <p>Add your educational history here.</p>
+                </div>
                     <form onSubmit={this.onSubmit}>
                         <TextFieldGroup 
                         placeholder="School"
@@ -86,59 +87,76 @@ class AddEducation extends Component {
                         error={errors.school}
                         />
 
-                        <TextFieldGroup 
-                        placeholder="Degree Earned"
-                        name="degree"
-                        value={this.state.degree}
-                        onChange={this.onChange}
-                        error={errors.degree}
-                        />
-
-                        <TextFieldGroup 
-                        placeholder="Field of Study"
-                        name="fieldOfStudy"
-                        value={this.state.fieldOfStudy}
-                        onChange={this.onChange}
-                        error={errors.fieldOfStudy}
-                        />
-                        <h6>From date</h6>
-                        <TextFieldGroup 
-                        placeholder="Start Date"
-                        name="from"
-                        type="date"
-                        value={this.state.from}
-                        onChange={this.onChange}
-                        error={errors.from}
-                        />
-                        <h6>{this.state.disabled ? 'You currently work here' : 'To date'}</h6>
-                        <TextFieldGroup 
-                        name="to"
-                        type="date"
-                        value={this.state.to}
-                        onChange={this.onChange}
-                        error={errors.to}
-                        disabled={this.state.disabled ? 'disabled' : ''}
-                        />
-
-                        <div className="form-check mb-4">
-                            <input type="checkbox"
-                            className="form-check-input"
-                            name="current"
-                            value={this.state.current}
-                            checked={this.state.current}
-                            onChange={this.onCheck}
-                            id="current"
-                            />
-                            <label htmlFor="current" className="form-check-label">I currently work here</label>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <TextFieldGroup 
+                                placeholder="Degree Earned"
+                                name="degree"
+                                value={this.state.degree}
+                                onChange={this.onChange}
+                                error={errors.degree}
+                                />
+                            </div>
+                            <div className="col-md-6">
+                                <TextFieldGroup 
+                                placeholder="Field of Study"
+                                name="fieldOfStudy"
+                                value={this.state.fieldOfStudy}
+                                onChange={this.onChange}
+                                error={errors.fieldOfStudy}
+                                />
+                            </div>
                         </div>
-                        <TextFieldGroup 
+
+                        
+                        <h6>From date</h6>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <TextFieldGroup 
+                                placeholder="Start Date"
+                                name="from"
+                                type="date"
+                                value={this.state.from}
+                                onChange={this.onChange}
+                                error={errors.from}
+                                />
+                            </div>
+                            <div className="col-md-6">
+                                {/* <h6>{this.state.disabled ? 'You currently work here' : 'To date'}</h6> */}
+                                <TextFieldGroup 
+                                name="to"
+                                type="date"
+                                value={this.state.to}
+                                onChange={this.onChange}
+                                error={errors.to}
+                                disabled={this.state.disabled ? 'disabled' : ''}
+                                />
+                                <div className="form-check mb-4">
+                                <input type="checkbox"
+                                className="form-check-input"
+                                name="current"
+                                value={this.state.current}
+                                checked={this.state.current}
+                                onChange={this.onCheck}
+                                id="current"
+                                />
+                                <label htmlFor="current" className="form-check-label">I currently work here</label>
+                        </div>
+                            </div>
+                        </div>
+                        
+
+                        
+                        <TextAreaGroup 
                         name="description"
+                        placeholder="Share a bit more about your education experience here."
                         value={this.state.description}
                         onChange={this.onChange}
                         error={errors.description}
                         info="Write a short description about your education."
                         />
-                        <input type="submit" value="Submit" className="btn btn-soft-primary"/>
+                        <input type="submit" value="Submit" className="btn btn-soft-primary mr-3"/>
+                        <Link to="/profile" className="btn btn-soft-secondary">Back to Profile</Link>
                     </form>
                 </div>
             </div>

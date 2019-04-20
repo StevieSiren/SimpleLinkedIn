@@ -11,6 +11,8 @@ import { setCurrentUser, logoutUser } from './actions/authActions';
 import './App.css';
 import './css/styles.css';
 import './css/theme.css';
+// import './assets/css/animate/animate.min.css';
+// import './assets/css/megamenu/hs.megamenu.css';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';

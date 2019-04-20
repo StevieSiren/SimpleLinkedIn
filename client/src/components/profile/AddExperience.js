@@ -71,9 +71,11 @@ class AddExperience extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="min-vh-100 d-flex align-items-center">
-        <div className="container">
-            <div className="mb-3">
+      <div className="min-vh-100">
+        <div className="container" style={{marginTop: '100px'}}>
+            <div className="row">
+                <div className="col-md-8 mx-auto">
+                <div className="mb-3">
                 <h2 className="h5 mb-0 text-primary">Add <strong>Experience</strong></h2>
                 <p>Share a bit more about your work experience.</p>
             </div>
@@ -163,9 +165,10 @@ class AddExperience extends Component {
                 <input type="submit" value="Save Experience" className="btn btn-primary transition-3d-hover"/>
                 <Link to="/profile" className="btn btn-soft-secondary transition-3d-hover ml-3">Back to Profile</Link>
                 </form>
-                
                 </div>
-            </div>
+            </div> 
+        </div>
+    </div>
         
       
     )

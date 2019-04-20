@@ -28,27 +28,18 @@ class PublicProfile extends Component {
     } else {
         profileContent = (
             <div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <Link to="/profiles" className="btn btn-light mb-3 float-left">Back to Profiles</Link>
-                    </div>
-                </div>
                 <ProfileHeader profile={profile} />
-                <ProfileAbout profile={profile} />
-                <ProfileCreds profile={profile} />
+                {/* <ProfileAbout profile={profile} /> */}
+                {/* <ProfileCreds profile={profile} /> */}
             </div>
         )
     }
 
     return (
       <React.Fragment>
-          <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    {profileContent}
-                </div>
-            </div>
-          </div>
+          
+            {profileContent}
+                
       </React.Fragment>
     )
   }

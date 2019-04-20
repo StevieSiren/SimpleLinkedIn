@@ -112,38 +112,50 @@ class EditProfile extends Component {
     if(displaySocialInputs) {
         socialInputs = (
             <div>
-                <InputGroup 
-                placeholder="Twitter"
-                name="twitter"
-                icon="fab fa-twitter"
-                value={this.state.twitter}
-                onChange={this.onChange}
-                error={errors.twitter}
-                />
-                <InputGroup 
-                placeholder="facebook"
-                name="facebook"
-                icon="fab fa-facebook"
-                value={this.state.facebook}
-                onChange={this.onChange}
-                error={errors.facebook}
-                />
-                <InputGroup 
-                placeholder="LinkedIn"
-                name="linkedin"
-                icon="fab fa-linkedin"
-                value={this.state.linkedin}
-                onChange={this.onChange}
-                error={errors.linkedin}
-                />
-                <InputGroup 
-                placeholder="YouTube"
-                name="youtube"
-                icon="fab fa-youtube"
-                value={this.state.youtube}
-                onChange={this.onChange}
-                error={errors.youtube}
-                />
+                <div className="row">
+                    <div className="col-md-6">
+                        <InputGroup 
+                        placeholder="Twitter"
+                        name="twitter"
+                        icon="fab fa-twitter"
+                        value={this.state.twitter}
+                        onChange={this.onChange}
+                        error={errors.twitter}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <InputGroup 
+                        placeholder="facebook"
+                        name="facebook"
+                        icon="fab fa-facebook"
+                        value={this.state.facebook}
+                        onChange={this.onChange}
+                        error={errors.facebook}
+                        />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <InputGroup 
+                        placeholder="LinkedIn"
+                        name="linkedin"
+                        icon="fab fa-linkedin"
+                        value={this.state.linkedin}
+                        onChange={this.onChange}
+                        error={errors.linkedin}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <InputGroup 
+                        placeholder="YouTube"
+                        name="youtube"
+                        icon="fab fa-youtube"
+                        value={this.state.youtube}
+                        onChange={this.onChange}
+                        error={errors.youtube}
+                        />
+                    </div>
+                </div>
             </div>
         )
     }
@@ -163,29 +175,34 @@ class EditProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-            <Link to="/profile" className="btn btn-light">Back to Profile</Link>
-              <h1 className="display-4 text-center">Edit Profile</h1>
-              
+            <Link to="/profile" className="mb-4"><i class="fas fa-angle-left"></i> Back to Profile</Link>
+              <h4 className="h5 text-primary mt-4">Edit your <strong>profile</strong></h4>
               <small className="d-block pb-3">* = required field</small>
+              
               <form onSubmit={this.onSubmit}>
-                <TextFieldGroup 
-                placeholder="Profile Handle"
-                name="handle"
-                value={this.state.handle}
-                onChange={this.onChange}
-                error={errors.handle}
-                info="Unique handle for your profile URL."
-                />
-
-                <SelectListGroup 
-                placeholder="Professional Status"
-                name="status"
-                value={this.state.status}
-                onChange={this.onChange}
-                options={options}
-                error={errors.status}
-                info="Select your professional status (experience level)."
-                />
+                <div className="row">
+                    <div className="col-md-6">
+                        <TextFieldGroup 
+                        placeholder="Profile Handle"
+                        name="handle"
+                        value={this.state.handle}
+                        onChange={this.onChange}
+                        error={errors.handle}
+                        info="* Unique handle for your profile URL."
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <SelectListGroup 
+                        placeholder="Professional Status"
+                        name="status"
+                        value={this.state.status}
+                        onChange={this.onChange}
+                        options={options}
+                        error={errors.status}
+                        info="Select your professional status (experience level)."
+                        />
+                    </div>
+                </div>
 
                 <TextFieldGroup 
                 placeholder="Company Name"
@@ -233,7 +250,7 @@ class EditProfile extends Component {
                 />
 
                 <div className="mb-3">
-                    <button className="btn btn-secondary" onClick={(e) => {
+                    <button type="button" className="btn btn-outline-secondary" onClick={(e) => {
                         e.preventDefault();
                         this.setState(prevState => ({
                             displaySocialInputs: !prevState.displaySocialInputs

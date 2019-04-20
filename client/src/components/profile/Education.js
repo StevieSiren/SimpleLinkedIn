@@ -6,6 +6,8 @@ import Moment from 'react-moment';
 
 import { deleteEducation } from '../../actions/profileActions';
 
+import ucbImg from '../../img/dashboard/ucb.png';
+
 class Education extends Component {
   
     onDeleteClick(id) {
@@ -16,35 +18,29 @@ class Education extends Component {
 
 
     const edu = this.props.edu.map(item => (
-        <tr key={item._id}>
-            <td>{item.school}</td>
-            <td>{item.degree}</td>
-            <td>
-                <Moment format="MM/DD/YYYY">{item.from}</Moment>
-                {' '} - {' '}
-                {item.to === null ? ('Current') : (<Moment format="MM/DD/YYYY">{item.to}</Moment>)}
-            </td>
-            <td><button className="btn btn-danger" onClick={this.onDeleteClick.bind(this, item._id)}>Remove</button></td>
-        </tr>
+        <div key={item._id}>
+            <div className="row align-items-center">
+                <div className="col-md-6">
+                    <h4 className="h6 mb-0">{item.school}</h4>
+                    <p className="mb-2">{item.degree}</p>
+                    <p className="text-body">{item.description}</p>
+                    <button className="btn btn-xs btn-outline-danger" type="button"
+                    onClick={this.onDeleteClick.bind(this, item._id)}>Remove</button>
+                </div>
+                <div className="col-md-6 text-md-right">
+                    <span className="d-inline-block bg-white rounded p-1">
+                        <img src={ucbImg} alt="School Logo" className="img-fluid" style={{width: '100px', height: 'auto'}}/>
+                    </span>
+                </div>
+            </div>
+            <hr className="mb-2"/>
+        </div>
     ))
 
     return (
-      <div>
-        <h4 className="mb-2">Experience</h4>
-        <table className="table">
-            <thead>
-                <tr>
-                    <th>School</th>
-                    <th>Degree</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-                
-                    {edu}
-                
-            </thead>
-        </table>
-      </div>
+      <React.Fragment>
+          {edu}
+      </React.Fragment>
     )
   }
 }

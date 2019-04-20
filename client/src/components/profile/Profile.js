@@ -11,6 +11,8 @@ import Education from './Education';
 import ProfileInfoCard from './ProfileInfoCard';
 import ProfileSnapshot from './ProfileSnapshot';
 
+import noProfileImg from '../../img/dashboard/noprofile.png';
+
 class Profile extends Component {
     
     componentDidMount() {
@@ -98,11 +100,22 @@ class Profile extends Component {
 
             <section className="mt-2 py-3">
               <div className="container">
-                {/* <h4 className="mb-2 text-primary">Your <strong>Experience</strong></h4> */}
-                {/* <div className="row">
-                  <Experience exp={profile.experience}/>
-                </div> */}
+                
                 <ProfileSnapshot profile={profile} />
+              </div>
+            </section>
+
+            <section className="space-lg-1" style={{backgroundColor: '#f5f8f9'}}>
+              <div className="container">
+                <h2 className="text-primary mb-3 h5">Your <strong>Experience</strong></h2>
+                <Experience exp={profile.experience}/>
+              </div>
+            </section>
+
+            <section className="space-lg-1">
+              <div className="container">
+                <h2 className="text-primary mb-3 h5">Your <strong>Education</strong></h2>
+                <Education edu={profile.education}/>
               </div>
             </section>
           </div>
@@ -110,12 +123,17 @@ class Profile extends Component {
       } else {
         // Show CTA to create a profile
         profileContent = (
-          <div>
-            <p className="lead text-muted">Welcome, {user.name}!</p>
-            <p>You haven't set up your profile yet. You can get started here.</p>
-            <Link to="/create-profile" className="btn btn-lg btn-info">
-              Create Profile
-            </Link>
+          <div className="min-vh-100">
+            <div className="container" style={{marginTop: '200px'}}>
+              <div className="d-flex flex-column align-items-center">
+              <img src={noProfileImg} alt="" className="img-fluid"/>
+                <h3 className="h3" style={{color: '#444'}}>Welcome, {user.name}!</h3>
+                <p>It looks like you haven't created a profile yet. Fortunately, it's very easy.</p>
+                <Link to="/create-profile" className="btn btn-primary">
+                  Create Profile
+                </Link>
+              </div>
+            </div>
           </div>
         )
       }
