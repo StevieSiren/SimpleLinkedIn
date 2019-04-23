@@ -32,11 +32,11 @@ class Profiles extends Component {
 
     return (
       <React.Fragment>
-          <div className="container">
+          <div className="container space-lg-3">
             <div className="row">
                 <div className="col-md-12">
-                    <h1 className="display-4 text-center">Profiles</h1>
-                    <p className="lead text-muted text-center">Browse all profiles</p>
+                    <h1 className="h4 text-left text-primary">All <strong>Profiles</strong></h1>
+                    
                     {profileItems}
                 </div>
             </div>

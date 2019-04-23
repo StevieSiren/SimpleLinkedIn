@@ -804,8 +804,8 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Register
+          <Link className="nav-link btn btn-sm btn-outline-primary text-primary" to="/register">
+            Sign Up
           </Link>
         </li>
       </ul>

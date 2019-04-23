@@ -19,12 +19,12 @@ class ProfileHeader extends Component {
                 
                 <div className="card">
                 <div className="card-heading bg-primary">
-                <div class="progress" style="height: 4px;">
-                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div className="progress" style="height: 4px;">
+                  <div className="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 </div>
                   <div className="card-body d-flex flex-column align-items-center p-5">
-                  <img class="u-lg-avatar u-lg-avatar--bordered rounded-circle mb-3 mr-3 shadow" src={profile.user.avatar} alt="Image Description" />
+                  <img className="u-lg-avatar u-lg-avatar--bordered rounded-circle mb-3 mr-3 shadow" src={profile.user.avatar} alt="Image Description" />
                   <h5 className="h5 mb-1">{profile.user.name}</h5>
                   <p className="text-body">{profile.location}</p>
                   <small className="text-muted">{profile.status}</small>

@@ -8,7 +8,11 @@ class PostFeed extends Component {
 
     const { posts } = this.props;
 
-    return posts.map(post => <PostItem key={post._id} post={post} />)
+    return (
+      <div style={{minHeight: '100vh'}}>
+        {posts.map(post => <PostItem key={post._id} post={post} />)}
+      </div>
+    )
   }
 }
 

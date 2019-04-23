@@ -11,19 +11,19 @@ class ProfileItem extends Component {
 
     return (
       <div className="card card-body mb-3">
-        <div className="row">
-            <div className="col-2">
-                <img src={profile.user.avatar} alt="" className="rounded-circle"/>
+        <div className="d-flex">
+            <div className="media mr-3">
+                <img src={profile.user.avatar} alt="" className="u-avatar rounded-circle"/>
             </div>
-            <div className="col-lg-6 col-md-4 col-8">
-                <h3>{profile.user.name}</h3>
+            <div className="media-body">
+                <h3 className="h5">{profile.user.name}</h3>
                 <p>{profile.status} 
-                {isEmpty(profile.company) ? null : (<span> - {profile.company}</span>)}</p>
-                <p>{isEmpty(profile.location) ? null : (<span>{profile.location}</span>)}</p>
-                <Link to={`/profile/${profile.handle}`} className="btn btn-soft-info">View Profile</Link>
+                {isEmpty(profile.company) ? null : (<span> <em>at</em> {profile.company}</span>)}</p>
+                {/* <p>{isEmpty(profile.location) ? null : (<span>{profile.location}</span>)}</p> */}
+                <Link to={`/profile/${profile.handle}`} className="btn btn-soft-secondary">View Profile</Link>
             </div>
-            <div className="col-md-4 d-none d-md-block">
-                <h4>Skills</h4>
+            <div className="media-body ml-auto col-md-4 d-none d-md-block">
+                <h4 className="h5 text-primary">Top <strong>Skills</strong></h4>
                 <ul className="list-group">
                     {profile.skills.slice(0, 4).map((skill, i) => (
                         <li key={i} className="list-group-item">{skill}</li>

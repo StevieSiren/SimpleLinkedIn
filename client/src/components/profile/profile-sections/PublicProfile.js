@@ -36,24 +36,24 @@ class PublicProfile extends Component {
     }
 
     return (
-      <React.Fragment>
+      <div>
           
-            {profileContent}
+        {profileContent}
                 
-      </React.Fragment>
+      </div>
     )
   }
 }
 
 
 PublicProfile.propTypes = {
-    profile: PropTypes.object.isRequired
+    profile: PropTypes.object.isRequired,
+    getProfileByHandle: PropTypes.func.isRequired
 };
 
 
 const mapStateToProps = state => ({
-    profile: state.profile,
-    getProfileByHandle: PropTypes.func.isRequired
+    profile: state.profile
 });
 
 

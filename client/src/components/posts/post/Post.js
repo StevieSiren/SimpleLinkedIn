@@ -27,6 +27,7 @@ class Post extends Component {
         postContent = <div>
             <PostItem post={post} showActions={false} />
             <CommentForm postId={post._id} />
+            <h4 className="h5 text-primary mt-4">Replies</h4>
             <CommentFeed postId={post._id} comments={post.comments} />
         </div>
                     
@@ -34,10 +35,10 @@ class Post extends Component {
 
     return (
       <React.Fragment>
-          <div className="container">
+          <div className="container space-lg-2">
             <div className="row">
                 <div className="col-md-12">
-                    <Link to="/feed" className="btn btn-light mb-3">Back to Feed</Link>
+                    <Link to="/feed" className="btn btn-light mb-5">Back to Feed</Link>
                     {postContent}
                 </div>
             </div>

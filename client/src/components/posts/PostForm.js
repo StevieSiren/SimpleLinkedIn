@@ -54,11 +54,11 @@ class PostForm extends Component {
 
     return (
       <React.Fragment>
-          <div className="container">
-          <div className="post-form mb-3">
+          <div className="space-lg-2">
+          <div className="mb-3">
             <div className="card card-info">
-              <div className="card-header bg-info text-white">
-                Say Somthing...
+              <div className="card-header bg-primary text-white">
+              <i class="fas fa-bullhorn mr-3"></i> Share something great you've accomplished
               </div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit}>
@@ -71,7 +71,7 @@ class PostForm extends Component {
                     error={errors.text}
                     />
                   </div>
-                  <button type="submit" className="btn btn-dark">Submit</button>
+                  <button type="submit" className="btn btn-outline-primary btn-sm">Post</button>
                 </form>
               </div>
             </div>

@@ -26,8 +26,8 @@ class Experience extends Component {
         //     </td>
         //     <td><button className="btn btn-danger" onClick={this.onDeleteClick.bind(this, item._id)}>Remove</button></td>
         // </tr>
-        <div className="col-lg-12 mb-3 shadow" key={item._id}>
-            <div className="card">
+        <div className="col-lg-12 mb-3" key={item._id}>
+            <div className="card shadow">
                 <div className="card-body p-5">
                 <div className="float-right">
                 <button type="button" onClick={this.onDeleteClick.bind(this, item._id)} class="btn btn-icon btn-outline-danger btn-xs">

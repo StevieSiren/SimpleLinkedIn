@@ -16,24 +16,25 @@ class CommentItem extends Component {
     const { comment, post, auth } = this.props;
 
     return (
-      <div>
-        <div className="card card-body mb-3">
-              <div className="row">
-                <div className="col-md-2">
+      <div className="mt-5">
+        <div className="mb-3">
+              
+                <div className="d-flex align-items-center mb-3">
                   <Link href="profile.html">
-                    <img className="rounded-circle d-none d-md-block" src={comment.avatar} alt="" />
+                    <img className="u-avatar mr-3 rounded-circle d-none d-md-block" src={comment.avatar} alt="" />
                   </Link>
-                  <br />
-                  <p className="text-center">{comment.name}</p>
+                  
+                  <p className="text-secondary">{comment.name}</p>
                 </div>
-                <div className="col-md-10">
+                <div className="">
                   <p className="lead">{comment.text}</p>
                   {comment.user === auth.user.id ? (
                       <button onClick={this.onDeleteClick.bind(this, post._id, comment._id)} className="btn btn-danger mr-1" type="button">&times; Remove</button>
                   ) : null}
                 </div>
-              </div>
+              
             </div>
+            <hr className="mb-3"/>
       </div>
     )
   }

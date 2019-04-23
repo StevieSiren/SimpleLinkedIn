@@ -108,14 +108,14 @@ class Profile extends Component {
             <section className="space-lg-1" style={{backgroundColor: '#f5f8f9'}}>
               <div className="container">
                 <h2 className="text-primary mb-3 h5">Your <strong>Experience</strong></h2>
-                <Experience exp={profile.experience}/>
+                {profile.experience.length === 0 ? (<Link to="/add-experience" className="btn btn-outline-primary">Add Experience</Link>) : (<Experience exp={profile.experience}/>)}
               </div>
             </section>
 
             <section className="space-lg-1">
               <div className="container">
                 <h2 className="text-primary mb-3 h5">Your <strong>Education</strong></h2>
-                <Education edu={profile.education}/>
+                {profile.education.length === 0 ? (<Link to="/add-education" className="btn btn-outline-primary">Add Education</Link>) : (<Education edu={profile.education}/>)}
               </div>
             </section>
           </div>
