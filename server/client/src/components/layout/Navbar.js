@@ -32,11 +32,7 @@ class Navbar extends Component {
           <i class="far fa-comment-dots mr-1"></i> Feed
           </Link>
         </li>
-        {/* <li className="nav-item">
-          <Link className="nav-link" to="/profiles">
-            All Profiles
-          </Link>
-        </li> */}
+        
           <li className="nav-item">
             <Link onClick={this.onLogoutClick.bind(this)} className="nav-link">
             

@@ -89,7 +89,7 @@ class Login extends Component {
               <div className="col-6 d-none d-md-flex flex-column justify-content-center">
                 <h4 className="text-dark">Luck is only made, not given.</h4>
                 <p className="lead text-muted">What are you waiting for? Start connecting with other professionals today.</p>
-                <Link className="text-primary">Learn More</Link>
+                <Link to="/" className="text-primary">Learn More</Link>
                 {/* <img src={loginImg} alt="" className="img-fluid" /> */}
               </div>
               </div>

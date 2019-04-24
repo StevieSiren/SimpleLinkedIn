@@ -32,7 +32,8 @@ export const loginUser = userData => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
         }));
-}
+        // .catch(err => console.log(err));
+};
 
 
 // Set Logged in user

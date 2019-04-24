@@ -25,8 +25,8 @@ require('./config/passport')(passport);
 // =====================================
 const db = require('./config/keys');
 
-mongoose.connect(db.mongoURI, {useNewUrlParser: true })
-    .then(() => console.log('MongoDB connected!'))
+mongoose.connect(db.MONGO_URI, {useNewUrlParser: true })
+    .then(() => console.log(`MongoDB connected at ${db.MONGO_URI}`))
     .catch(err => console.log(err));
 
 
@@ -44,23 +44,15 @@ app.use('/api/users', usersRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/posts', postsRoutes);
 
-app.get('/', (req, res) => {
-    res.send('Hello world!');
-});
-
 // Serve static assets
 if(process.env.NODE_ENV === 'production') {
     // Set static folder
-    app.use(express.static('../client/build'));
+    app.use(express.static('client/build'));
     
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
-    })
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }
-
-
-
-
 
 
 app.listen(port, () => {

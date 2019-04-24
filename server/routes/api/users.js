@@ -94,7 +94,7 @@ router.post('/login', (req, res) => {
                             avatar: user.avatar
                         };
                         // Send JWT
-                        jwt.sign(payload, keys.SECRET_KEY, {
+                        jwt.sign(payload, keys.SECRET_OR_KEY, {
                             expiresIn: 3600
                         }, (err, token) => {
                             res.json({

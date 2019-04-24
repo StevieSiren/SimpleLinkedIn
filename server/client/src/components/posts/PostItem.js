@@ -95,7 +95,7 @@ class PostItem extends Component {
                   </button> 
               </li>
               <li className="list-inline-item ml-auto">
-                  <Link to={`/post/${post._id}`} className="mr-1 text-secondary">
+                  <Link to={`/post/${post._id}`} className="mr-1 text-secondary disabled">
                     <i className="text-secondary far fa-comments"></i> Reply
                   </Link>  
               </li>
