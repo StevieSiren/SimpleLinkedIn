@@ -84,7 +84,7 @@ class PostItem extends Component {
               <li className="list-inline-item">
               <button onClick={this.onLikeClick.bind(this, post._id)} type="button" className="btn btn-light btn-xs mr-1">
                     <i className={classnames('far fa-thumbs-up', {
-                        'text-info': this.findUserLike(post.likes)
+                        'text-primary': this.findUserLike(post.likes)
                     })}></i>
                     <span className="badge badge-light">{post.likes.length}</span>
                   </button>
@@ -95,7 +95,7 @@ class PostItem extends Component {
                   </button> 
               </li>
               <li className="list-inline-item ml-auto">
-                  <Link to={'/post/' + post._id} className="mr-1 text-secondary">
+                  <Link to={`/post/${post._id}`} className="mr-1 text-secondary">
                     <i className="text-secondary far fa-comments"></i> Reply
                   </Link>  
               </li>

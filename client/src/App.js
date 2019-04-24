@@ -20,6 +20,8 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
+import NotFound from './components/common/errors/NotFound';
+
 import Profile from './components/profile/Profile';
 import { clearCurrentProfile } from './actions/profileActions';
 import PrivateRoute from './components/common/PrivateRoute';
@@ -67,6 +69,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={PublicProfile} />
+              
               <Switch>
                 <PrivateRoute exact path="/profile" component={Profile} />
               </Switch>
@@ -88,6 +91,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
+              {/* <Route path="*" component={NotFound} /> */}
             <Footer />
           </div>
         </Router>

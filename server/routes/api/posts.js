@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
 
 // === @route   GET /api/posts/:id
-// === @desc    Create a new post
+// === @desc    Get a single post
 // === @access  Public
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id)
@@ -56,7 +56,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
 
 // === @route   DELETE /api/posts/:id
-// === @desc    Create a new post
+// === @desc    Delete a post
 // === @access  Private
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Profile.findOne({ user: req.user.id })

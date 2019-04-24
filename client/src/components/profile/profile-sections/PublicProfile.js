@@ -29,10 +29,10 @@ class PublicProfile extends Component {
         profileContent = (
             <div>
                 <ProfileHeader profile={profile} />
-                {/* <ProfileAbout profile={profile} /> */}
+                <ProfileAbout profile={profile} />
                 {/* <ProfileCreds profile={profile} /> */}
             </div>
-        )
+        );
     }
 
     return (

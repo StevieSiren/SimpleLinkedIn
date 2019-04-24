@@ -174,8 +174,8 @@ class EditProfile extends Component {
         <div className="create-profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
-            <Link to="/profile" className="mb-4"><i class="fas fa-angle-left"></i> Back to Profile</Link>
+            <div className="col-md-8 mx-auto mt-6">
+            
               <h4 className="h5 text-primary mt-4">Edit your <strong>profile</strong></h4>
               <small className="d-block pb-3">* = required field</small>
               
@@ -259,7 +259,10 @@ class EditProfile extends Component {
                     
                 </div>
                 {socialInputs}
-                <input type="submit" value="Submit" className="btn btn-primary btn-block mt-4"/>
+                <div className="d-flex align-items-center">
+                <input type="submit" value="Submit" className="btn btn-primary mt-4 mr-3"/>
+                <Link to="/profile" className="btn btn-soft-secondary mt-4">Back to Profile</Link>
+                </div>
               </form>
             </div>
           </div>

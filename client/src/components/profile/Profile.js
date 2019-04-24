@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import Spinner from '../common/Spinner';
-import ProfileActions from './ProfileActions';
 import Experience from './Experience';
 import Education from './Education';
 import ProfileInfoCard from './ProfileInfoCard';
