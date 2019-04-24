@@ -3,7 +3,8 @@ const express = require('express'),
       port = process.env.PORT || 5000,
       mongoose = require('mongoose'),
       bodyParser = require('body-parser'),
-      passport = require('passport');
+      passport = require('passport'),
+      path = require('path');
 
 
 // =====================================
@@ -46,6 +47,16 @@ app.use('/api/posts', postsRoutes);
 app.get('/', (req, res) => {
     res.send('Hello world!');
 });
+
+// Serve static assets
+if(process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('../client/build'));
+    
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+    })
+}
 
 
 
