@@ -1,2 +1,5 @@
 /node_modules
 package-lock.json
+
+# Securing keys
+/config/keys_dev.js
